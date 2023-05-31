@@ -99,7 +99,7 @@ def append_details():
     total_entries +=1
     
 #DELETE button
-    #delete a row when an item is returned
+    #delete a row when an item is returned.
 def delete_row ():
     global hire_details, delete_item, total_entries, item_count, frame
     try:
