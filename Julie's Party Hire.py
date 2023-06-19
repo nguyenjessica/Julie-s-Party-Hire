@@ -1,9 +1,12 @@
-'''Jessica Nguyen Julie's Party Hire
-Today, May 17th, I began to code.'''
+
+'''Julie's Party Hire'''
+
 #import tkinter library
-rom tkinter import *
+from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+
+
  
 '''----------------------------------------- Set up GUI -----------------------------------------
 Create the title, default buttons, labels, and entry boxes. Put them in the correct grid location.'''
@@ -18,18 +21,17 @@ def setup_buttons():
     Button(main_window, text="Delete",font="Georgia 15", bg="#FFD7D7", highlightbackground="#FFD7D7", command=delete_row) .grid(column=2,row=6,sticky=W,ipadx=20,ipady=3)
     #title
     Label(main_window, text = "Julie's Party Hire", font="Georgia 25", bg="#FFD7D7").grid(column=1,row=0,pady=(30,10))
-    
-'''May 18th: I created labels'''
+
 #creating the labels (entries)
            #these are the global variables that are used, accessible throughout the program
     global hire_details, entry_name,entry_receiptnumber,entry_item,entry_numberhired, total_entries, delete_item
     #customer name
     Label(main_window, text="Customer Full Name",font='Georgia 18', bg="#FFD7D7") .grid(column=0,row=2,padx=20)
-    entry_name = Entry(main_window,font='Georgia 16',bg="#FFD7D7")
+    entry_name = Entry(main_window,font='Georgia 16')
     entry_name.grid(column=1,row=2,padx=10,pady=5)
     #receipt number
     Label(main_window, text="Receipt Number",font='Georgia 18', bg="#FFD7D7") .grid(column=0,row=3)
-    entry_receiptnumber = Entry(main_window,font='Georgia 16', bg="#FFD7D7")
+    entry_receiptnumber = Entry(main_window,font='Georgia 16')
     entry_receiptnumber.grid(column=1,row=3,padx=10,pady=5)
     #item hired (combobox)
     item_hired = StringVar()
@@ -37,19 +39,16 @@ def setup_buttons():
     entry_item = ttk.Combobox(main_window,font='Georgia 16', textvariable=item_hired, values=('Cutlery Set', 'Glassware','Chairs', 'Tables', 'Balloons', 'Booth hire',
                                                                             'Prop hire','Jukebox','Party lights', 'Dance floor'), state='readonly')
     entry_item.grid(column=1,row=4,padx=10,pady=5)                                                 
-    #quantity hired
-    Label(main_window, text="Quantity Hired",font='Georgia 18') .grid(column=0,row=5)
+    #number hired
+    Label(main_window, text="Quantity Hired",font='Georgia 18', bg="#FFD7D7") .grid(column=0,row=5)
     entry_numberhired = Entry(main_window,font='Georgia 16')
     entry_numberhired.grid(column=1,row=5,padx=10,pady=5)
     #row number (for when item is returned)
-    Label(main_window, text="Row #",font='Georgia 18') .grid(column=0,row=6)
+    Label(main_window, text="Row #",font='Georgia 18', bg="#FFD7D7") .grid(column=0,row=6)
     delete_item = Entry(main_window,font='Georgia 16')
     delete_item .grid(column=1,row=6,padx=10,pady=5)
-    
-    '''May 19th: I went back and added background colour to the labels as I forgot them. Without the pink background it would not
-    have matched my design and would have changed the aesthetic. I then added functions to the buttons.'''
-    
-    '''----------------- Attach a function to the buttons -----------------'''
+
+'''----------------- Attach a function to the buttons -----------------'''
 
 #PRINT button
     #print the customers' details into a table after appending
@@ -99,7 +98,7 @@ def append_details():
     total_entries +=1
     
 #DELETE button
-    #delete a row when an item is returned.
+    #delete a row when an item is returned
 def delete_row ():
     global hire_details, delete_item, total_entries, item_count, frame
     try:
@@ -125,9 +124,6 @@ def delete_row ():
 
 def quit():
         main_window.destroy()
-  
-  
-'''May 22nd: I began validity checking'''
 
 '''------------------------- Check for validity -------------------------
 Set up red error text messages and error message box
@@ -179,12 +175,8 @@ def check_inputs():
     else:
         Label(main_window, fg='red', text="Required (6 Digits)",font='Georgia 14').grid(column=2,row=3,sticky=W)
         entry_check = 1
-       
-    '''May 26: I completed my validity checking and overall code and also went back and altered some of the code. There were some minor 
-    syntax errors that I had to fix. I also altered the columns and rows so that it looks more similar to my original design.'''
-    
-    
-    #item hired
+
+#item hired
     #cannot be blank (fill the combobox)
     if len(entry_item.get()) == 0:
         Label(main_window,fg='red',text="Required (Select item)",font='Georgia 14').grid(column=2,row=4,sticky=W)
@@ -229,16 +221,6 @@ def main():
     main_window.mainloop()
 #function called to start up the GUI
 main()
-
-
-
-
-
-    
-    
-    
-
-
 
 
 
